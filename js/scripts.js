@@ -1,33 +1,61 @@
-// OBJETOS LITERALES
+// arrow function
+
+const saludar = () => {
+    console.log("hola");
+}
+
+// si tiene una sola linea de codigo
+
+// const saludar = () => console.log("hola");
+
+// CON PARAMETROS
+
+const hello = (nombre) => console.log(`Hola ${nombre}`);
+
+// si recibe parametros ni hace falta el parentesis claro mientra sea de una sola linea
+
+// const hello = nombre => console.log(`Hola ${nombre}`);
+
+saludar();
+
+hello("Angel")
 
 
-let nombre = "simba",
-edad = 2;
+// EJEMPLO 2
 
-// sin los añadidos de los objetos literales
+// Sin arrow function
 
-const gato = {
-    nombre: nombre,
-    edad: edad,
-    maullar: function(){
-        console.log("miauu miauu!!");
+// const sumar = function (a,b) {
+//     return a + b
+// }
+// console.log(sumar(8,9));
+
+// Las arrow function tiene el return implicito solo cuando es una linea
+
+
+const sumar = (a,b) => a + b;
+console.log(sumar(2,4));
+
+
+// EJEMPLO 3
+
+const sumadorDeNumero = (a) => {
+    for (let i = 0; i < a; i++) {
+        let s = a*(a+1)/2;
+        console.log(s);
     }
 }
 
-console.log(gato);
-gato.maullar();
+sumadorDeNumero(3)
 
-// con los añadidos de lso objetos literales
+// Las Arrow function tienen la capacidad de capturar el contexto del objeto en el que se encuentran
 
-const cat = {
-    nombre,
-    edad,
-    raza: "Siames",
-    maullar (){
-        console.log("miauu miauu miauu!!");
+// Por eso hay que tener cuidado con usar arrow function dentro de objetos literales
+
+const perro = {
+    nombre: "bubu",
+    ladrar: () => {
+        console.log(this);
     }
 }
-
-console.log(cat);
-
 
