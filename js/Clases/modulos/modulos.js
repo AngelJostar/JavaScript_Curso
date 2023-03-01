@@ -1,5 +1,8 @@
-import {PI} from "./constantes.js";
-import {aritmetica} from "./aritmetica.js";
+import saludar, {PI, Saludar} from "./constantes.js";
+import {aritmetica as calculos} from "./aritmetica.js";
 
 console.log(PI);
-console.log(aritmetica.sumar(3,4));
+console.log(calculos.sumar(3,4));
+saludar()
+let saludo = new Saludar();
+saludo;
