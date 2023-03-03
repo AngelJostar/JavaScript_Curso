@@ -79,3 +79,59 @@ const repiteString = (cadena="", numero = undefined) => {
 }
 
 repiteString("hola",5)
+
+// EJERCICIO 5
+
+const invertirString = (cadena = "") => {
+    let nuevaCadena = "";
+    if(!cadena) return console.warn("no ingresaste una cadena");
+
+    for(let i = cadena.length - 1; i >= 0; i--){
+        nuevaCadena += cadena[i];
+    }
+    console.info(nuevaCadena);
+}
+
+const invertirCadena = (cadena) => 
+    (!cadena)
+        ?console.warn("No ingresaste una cadena de texto")
+        :console.info(cadena.split("").reverse().join(""));
+
+
+invertirString("hola")
+invertirCadena("Hola");
+
+
+// Ejercicio 6
+
+const contarString = (cadena="",texto="") => {
+    
+    if(!cadena) return console.warn("no ingresaste una cadena");
+    if(!texto) return console.warn("no ingresaste una palabra a buscar");
+
+    let i = 0,
+        contador = 0;
+    
+    while (i !== -1) {
+        i = cadena.indexOf(texto, i);
+        if(i !== -1){
+            i++;
+            contador++;
+        }
+    }
+
+    return console.info(`La palabra ${texto} se repite ${contador} veces`);;
+}
+
+contarString("hola mis amigos", "hola")
+ 
+// Ejercicio 7
+
+const palindromo = (cadena) => {
+    if(!cadena) return console.warn("no ingresaste una cadena");
+
+    console.log(cadena.split("").reverse().join(""));
+}
+
+palindromo("ala")
+
