@@ -127,11 +127,77 @@ contarString("hola mis amigos", "hola")
  
 // Ejercicio 7
 
-const palindromo = (cadena) => {
+const palindromo = (cadena="") => {
     if(!cadena) return console.warn("no ingresaste una cadena");
 
-    console.log(cadena.split("").reverse().join(""));
+    cadena = cadena.toLowerCase();
+    let alReves = cadena.split("").reverse().join("");
+
+    return (cadena == alReves)
+        ?console.info(`Si es palindromo, palabra original ${cadena}, palabra al revés ${alReves}`)
+        :console.info(`No es palindromo, palabra original ${cadena}, palabra al revés ${alReves}`);
 }
 
 palindromo("ala")
 
+
+
+// Ejercicio 8
+
+const eliminacionString = (cadena="", patron="") => {
+    if(!cadena) return console.warn("no ingresaste una cadena");
+
+    if(!patron) return console.warn("no ingresaste un patron");
+
+    let resulktado = cadena.replace(new RegExp(patron, "ig"), "");
+
+    console.info(resulktado);
+}
+
+eliminacionString("xyz1, xyz2", "xyz");
+
+
+
+// Ejercicio 9
+
+const numAleatorio = () => {
+        
+    return console.info(Math.random() * (501 - 600) + 600);
+    
+}
+
+numAleatorio();
+
+// Ejercicio 10
+
+const capicua = (numero = 0) => {
+    if(!numero) return console.warn("No ingresaste un número");
+
+    if(typeof numero !== "number") return console.error("no ingresaste un tipo number");
+
+    numero = numero.toString();
+
+    let alReves = numero.split("").reverse().join("");
+
+    return (numero === alReves)
+        ?console.info(`Si es un numero capicua`)
+        :console.info(`No es un numero capicua`);
+}
+
+capicua(202)
+capicua(102)
+
+
+const factorial = (numero = 0) => {
+    if(!numero) return console.warn("No ingresaste un número");
+    if(typeof numero !== "number") return console.error("no ingresaste un tipo number");
+
+    let factorial  = 1;
+
+    for(let i = numero; i > 1; i--){
+        factorial = factorial * i
+    }
+    return console.info(factorial);
+}
+
+factorial(5)
