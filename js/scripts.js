@@ -187,6 +187,7 @@ const capicua = (numero = 0) => {
 capicua(202)
 capicua(102)
 
+// EJERCICIO 11
 
 const factorial = (numero = 0) => {
     if(!numero) return console.warn("No ingresaste un número");
@@ -201,3 +202,100 @@ const factorial = (numero = 0) => {
 }
 
 factorial(5)
+
+// EJERCICIO 12
+
+const esPrimo = (num=undefined) =>{
+    if(!num) return console.warn("No ingresaste un número");
+    if(typeof num !== "number") return console.error("no ingresaste un tipo number");
+    if(num === 0) return console.error("El número no puede ser 0");
+    if(num === 1) return console.error("El número no puede ser 1");
+    if(Math.sign(num) === -1) return console.error("El número no puede ser negativo");
+
+    let divisible = false;
+
+    for(let i=2; i > num; i++){
+        if(num % i === 0){
+            divisible = true;
+            break;
+        }
+    }
+    return (divisible)
+        ? console.info(`El número ${num} No es primo`)
+        : console.info(`El número ${num} Si es primo`);
+}
+
+esPrimo(7);
+
+
+// EJERCICIO 13
+
+const impOPar = (numero) => {
+
+    if(!numero) return console.warn("No ingresaste un número");
+    if(typeof numero !== "number") return console.error("no ingresaste un tipo number");
+
+    (numero % 2 == 0)
+        ?console.info(`Es número ${numero}, es par`)
+        :console.info(`El número ${numero}, es impar`);
+}
+
+impOPar(3);
+
+// EJERCICIO 14
+
+const convertidorGrados = (grados = undefined,tipo=undefined) => {
+    if(!grados) return console.warn("No ingresaste los grados a convertir");
+    if(!tipo) return console.warn("No ingresaste el tipo de grados");
+    if(typeof grados !== "number") return console.error("no ingresaste un tipo number");
+    if(typeof tipo !== "string") return console.error("no ingresaste un tipo string");
+
+    if(tipo === "f"){
+        console.info((grados*1.8)+32); 
+    }else if(tipo === "c"){
+        console.info((grados-32)/1.8);
+    }else{
+        console.error("no ingresaste valores correctos");
+    }
+    
+
+
+}
+
+convertidorGrados(120,"f")
+
+// EJERCICIO 15
+
+const convertirBinarioDecimal = (numero =undefined, base=undefined) => {
+    if(!numero) return console.warn("No ingresaste los grados a convertir");
+    if(!base) return console.warn("No ingresaste los grados a convertir");
+    if(typeof numero !== "number") return console.error("no ingresaste un tipo number");
+    if(typeof base !== "number") return console.error("no ingresaste un tipo number");
+
+    if(base === 2){
+        return console.info(`${numero} base ${base} = ${parseInt(numero, base)} base 10`);
+    }else if(base == 10){ 
+        return console.info(`${numero} base ${base} = ${numero.toString(base)} base 2`);
+    }else{
+        return console.error("el tipo de base a convertir no es valido");
+    }
+
+}
+
+convertirBinarioDecimal(100,2)
+convertirBinarioDecimal(4,10)
+
+// EJERCICIO 16
+
+const descuentoMonto = (numero = undefined, descuento="undefined") => {
+    if(!numero) return console.warn("No ingresaste los grados a convertir");
+    if(!descuento) return console.warn("No ingresaste los grados a convertir");
+
+    if(typeof numero !== "number") return console.error("no ingresaste un tipo number");
+    if(typeof descuento !== "number") return console.error("no ingresaste un tipo number");
+
+    let resultado = (numero - ((numero * descuento)/100))
+    console.info(resultado);
+}
+
+descuentoMonto(2000,10)
