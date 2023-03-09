@@ -299,3 +299,11 @@ const descuentoMonto = (numero = undefined, descuento="undefined") => {
 }
 
 descuentoMonto(2000,10)
+
+// EJERCICIO 17
+
+const yearToDay = (fecha = undefined) => {
+    if(fecha == undefined) return console.warn("No ingresaste la fecha");
+    if(fecha instanceof  ) return console.error("no ingresaste un tipo number");
+
+}
