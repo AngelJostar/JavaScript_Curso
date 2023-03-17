@@ -1,46 +1,43 @@
-//  ASINCROIA
-
-// JAVASCRIPT trabaja bajo un modelo asincrono y no bloqueante y tiene un flojo de operaciones de un solo thread
-// para entrada y salida
-
-// Concurrencia
-// la concurrecia es cuando dos o mas tareas progresan simultaneamente
-
-// el paralelismo
-// Es cuando dos o mas tareas se ejecutan al mismo tiempo (al unisono)
-
-// una operación bloqueando es aquella que no va a devolver control  a la aplicacion hasta que 
-// haya terminado toda su tarea.
-
-// asíncrono
-// significa que la respuesta sucede en el presente en un tiempo inmediato
-
-// asíncrono
-// significa que la respuesta sucede en un futuro
+// Symbols
 
 
-// Codigo síncrono bloqueante
+// let id = "hola";
+// let id2 = "hola";
 
-(()=>{
-    console.log("Código Síncrono");
-    console.log("Inicio");
+// console.log(id === id2);
+// Symbol crea identificadores unicos
 
-    function dos(){
-        console.log("Dos");
-    }
+let id = Symbol("hola");
+let id2 = Symbol("hola");
 
-    function uno(){
-        console.log("Uno");
-        dos();
-        console.log("tres");
-    }
+console.log(id === id2);
 
-    uno();
-    console.log("fin");
-})();
+const NOMBRE = Symbol();
+const SALUDAR = Symbol();
 
-// Código Asíncrono no Bloqueante
+const persona = {
+    [NOMBRE]: "Jon"
+}
 
-(()=>{
 
-})();
+console.log(persona);
+
+persona.NOMBRE = "Luis Angel Rojas"
+console.log(persona);
+console.log(persona.NOMBRE);
+console.log(persona[NOMBRE]);
+
+persona[SALUDAR] = function(){
+    console.log(`hola`);
+}
+
+console.log(persona);
+persona[SALUDAR]();
+
+// los Symbol no se van a listar como una propiedad publica
+
+for(let propiedad in persona){
+    console.log(propiedad);
+}
+
+console.log(Object.getOwnPropertySymbols(persona));
